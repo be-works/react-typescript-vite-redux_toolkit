@@ -16,8 +16,7 @@ const request = ({ method, url, data, ...rest }: AxiosRequestConfig) =>
   });
 
 const requestToken = ({ method, url, data, ...rest }: AxiosRequestConfig) => {
-  const token = localStorage.getItem('token');
-
+  const token = JSON.parse(localStorage.getItem('token') ?? '{}');
   return axiosConfig({
     method: method,
     url: url,
@@ -67,8 +66,7 @@ const requestInterToken = ({
   data,
   ...rest
 }: AxiosRequestConfig) => {
-  const token = localStorage.getItem('token');
-
+  const token = JSON.parse(localStorage.getItem('token') ?? '{}');
   return axiosConfigInter({
     method: method,
     url: url,
